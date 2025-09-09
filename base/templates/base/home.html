@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+    <h1>You are logged in {{request.user}}</h1>
+
+    <h1>This is the enpoint to test some of my models and to check my data</h1>
+    {% for room_type in room_types %}
+        <div>
+            <h2>{{ room_type.name }}</h2>
+            <p>{{ room_type.description }}</p>
+            <p>Price: {{ room_type.base_price }}</p>
+            <p>Total Number of Rooms: {{room_type.rooms_count}}</p>
+        </div>
+    {% endfor %}
+
+    <h2>Total Room Type: {{room_types_count}}</h2>
+    <h2>Total number of room: {{rooms.count}}</h2>
+{% endblock %}

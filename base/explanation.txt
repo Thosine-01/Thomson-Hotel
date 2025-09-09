@@ -1,0 +1,44 @@
+view.py is the file that contain Python functions or classes that handle web requests and return web responses. They are a crucial part of Django's Model-View-Template (MVT) architecture, acting as the bridge between your application's data (managed by models) and its presentation (handled by templates).
+
+Here's a breakdown of their primary uses:
+1. Request Handling:
+Views receive incoming HTTP requests (e.g., GET, POST, PUT, DELETE) from users and process them.
+
+2. Business Logic:
+- They encapsulate the core logic of your application, such as: 
+- Querying the database to retrieve or store data using Django's ORM (Object-Relational Mapper).
+- Processing user input from forms.
+- Performing calculations or other data manipulations.
+
+3. Response Generation:
+-Views are responsible for generating and returning an appropriate web response to the client. This can be:
+{
+    Rendered HTML content using Django templates.
+    A redirect to another URL.
+    A 404 error page.
+    An API response (e.g., JSON or XML).
+}
+
+4. Connecting Models and Templates:
+-Views fetch data from your Django models and pass it to the templates for display, effectively orchestrating the flow of information within your application.
+
+
+In essence, views.py is where you define how your Django application responds to different user interactions and generates the content that users see.
+
+for my booking app view page will contain
+    - Request to be handled
+    {
+        request to GET the rooms
+        requst to GET room types
+        requst to GET features
+        request to POST some of the quest information
+        request to POST bookinks
+    }
+
+    -Business Logic
+    {
+        
+    }
+
+--> Handling the user account logic of my app. ie login, register, logout:
+

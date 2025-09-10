@@ -4,14 +4,27 @@ import { Menu } from 'lucide-react';
 import { assets } from '../assets/assets';
 import Auth from '../pages/Auth';
 import Profile from '../pages/Profile';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
     const [showModalAuth, setShowModalAuth] = useState(false);
     const [showModalProfile, setShowModalProfile] = useState(false);
     const [isOpen, setIsOpen] = useState(false)
     const [isAuthenticated, setIsAuthenticated] = useState(true);
+    const [scroll, setscroll] = useState(false);
 
+    useState(() => {
+        const handleScroll = () => {
+            setscroll(window.scrollY > 0);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    const location = useLocation();
 
         // Add these handlers with console.log
     const handleAuthOpen = () => {
@@ -25,8 +38,8 @@ function Navbar() {
     };
 
   return (
-    <div className='z-40 flex justify-between items-center px-8 sm:px-12 lg:px-24 xl:px-40 font-medium fixed
-     top-0 py-4 text-white w-full'>
+    <div className={`z-40 flex justify-between items-center px-8 sm:px-12 lg:px-24 xl:px-40 font-medium fixed
+     top-0 py-4 text-white w-full ${scroll ? 'bg-blue-800 z-50' : 'bg-transparent'}`}>
       <div className='text-sm sm:text-2xl font-medium mt-3 sm:mt-0 flex gap-2'>Toms <span>Hotel</span></div>
 
       <div className='hidden sm:flex items-center gap-8  text-sm sm:text-sm '>
